@@ -1,0 +1,32 @@
+bundle:
+  name: megha_dab_test_baby_names
+
+include:
+  - resources/*.yml
+
+variables:
+  git_branch:
+    description: name of branch to use
+    default: main
+
+targets:
+  dev:
+    # The default target uses 'mode: development' to create a development copy.
+    # - Deployed resources get prefixed with '[dev my_user_name]'
+    # - Any job schedules and triggers are paused by default.
+    variables:
+      git_branch: ${bundle.git.branch}
+    mode: development
+    default: true
+    workspace:
+      host: https://e2-demo-field-eng.cloud.databricks.com
+
+  prod:
+    mode: production
+    workspace:
+      host: https://e2-demo-field-eng.cloud.databricks.com
+      # We explicitly deploy to /Workspace/Users/megha.upadhyay@databricks.com to make sure we only have a single copy.
+      root_path: /Shared/megha_upadhyay/dab_demo/.bundle/${bundle.name}/${bundle.target}
+    permissions:
+      - user_name: megha.upadhyay@databricks.com
+        level: CAN_MANAGE

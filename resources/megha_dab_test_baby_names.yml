@@ -1,0 +1,43 @@
+resources:
+  jobs:
+    megha_dab_test_baby_names:
+      name: (${bundle.target}) megha_dab_test_baby_names
+      tasks:
+        - task_key: retrieve-baby-names
+          notebook_task:
+            notebook_path: src/retrieve-baby-names
+            source: GIT
+          job_cluster_key: Job_cluster
+        - task_key: filter-baby-names
+          depends_on:
+            - task_key: retrieve-baby-names
+          notebook_task:
+            notebook_path: src/filter-baby-names
+            source: GIT
+          job_cluster_key: Job_cluster
+      job_clusters:
+        - job_cluster_key: Job_cluster
+          new_cluster:
+            cluster_name: ""
+            spark_version: 15.4.x-scala2.12
+            aws_attributes:
+              first_on_demand: 1
+              availability: SPOT_WITH_FALLBACK
+              zone_id: us-west-2a
+              spot_bid_price_percent: 100
+              ebs_volume_count: 0
+            node_type_id: rd-fleet.xlarge
+            spark_env_vars:
+              PYSPARK_PYTHON: /databricks/python3/bin/python3
+            enable_elastic_disk: false
+            data_security_mode: SINGLE_USER
+            runtime_engine: PHOTON
+            num_workers: 8
+      git_source:
+        git_url: https://github.com/Megha-jfs/databricks-dabs-test.git
+        git_provider: gitHub
+        git_branch: ${var.git_branch}
+      queue:
+        enabled: true
+      run_as:
+        service_principal_name: 7d20289d-76be-41d8-a240-e2d2541cd083

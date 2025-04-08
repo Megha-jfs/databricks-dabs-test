@@ -13,10 +13,10 @@ requires-python = ">=3.9"
 allow-direct-references = true 
 
 [tool.hatch.build]
-sources = ["src"]
+sources = ["databricks-dabs-test/src"]
 
 [tool.hatch.build.targets.wheel]
-packages = ["src"]
+packages = ["databricks-dabs-test/src"]
 
 [tool.ruff]
 line-length = 100

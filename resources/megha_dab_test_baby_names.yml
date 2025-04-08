@@ -21,5 +21,7 @@ resources:
         - environment_key: Default
           spec:
             client: "2"
+          dependencies:
+              - whl: ../dist/*.whl  
       run_as:
         service_principal_name: 7d20289d-76be-41d8-a240-e2d2541cd083

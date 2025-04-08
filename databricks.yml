@@ -1,6 +1,12 @@
 bundle:
   name: megha_dab_test_baby_names
 
+artifacts:
+  default:
+    type: whl
+    build: hatch build
+    path: .
+
 include:
   - resources/*.yml
 

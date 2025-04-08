@@ -16,7 +16,7 @@ allow-direct-references = true
 sources = ["src"]
 
 [tool.hatch.build.targets.wheel]
-packages = ["databricks-dabs-test/src"]
+packages = ["src"]
 
 [tool.ruff]
 line-length = 100

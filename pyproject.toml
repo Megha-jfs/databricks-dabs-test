@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 [project]
 name = "databricks-dabs-test"
 version = "0.1.0"
-description = "Foundational data refresh functionality for the Virtue Fountation."
+description = "Dab testing"
 readme = "README.md"
 requires-python = ">=3.9"
 

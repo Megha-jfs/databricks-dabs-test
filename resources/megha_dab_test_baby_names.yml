@@ -5,14 +5,14 @@ resources:
       tasks:
         - task_key: retrieve-baby-names
           notebook_task:
-            notebook_path: notebooks/retrieve-baby-names
+            notebook_path: notebooks/retrieve-baby-names.ipynb
             source: GIT
           environment_key: Default
         - task_key: filter-baby-names
           depends_on:
             - task_key: retrieve-baby-names
           notebook_task:
-            notebook_path: notebooks/filter-baby-names
+            notebook_path: notebooks/filter-baby-names.ipynb
             source: WORKSPACE
           environment_key: Default
       queue:

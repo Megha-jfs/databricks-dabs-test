@@ -15,6 +15,9 @@ allow-direct-references = true
 [tool.hatch.build]
 sources = ["databricks-dabs-test/src"]
 
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
+
 [tool.ruff]
 line-length = 100
 target-version = "py38"

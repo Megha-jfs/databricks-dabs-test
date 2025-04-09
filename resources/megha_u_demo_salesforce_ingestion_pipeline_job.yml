@@ -1,7 +1,7 @@
 resources:
   jobs:
     megha_u_demo_salesforce_ingestion_pipeline_job:
-      name: megha-u-demo-salesforce-ingestion-pipeline job
+      name: (${bundle.target}) megha-u-demo-salesforce-ingestion-pipeline job
       trigger:
         pause_status: UNPAUSED
         periodic:

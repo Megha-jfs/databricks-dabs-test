@@ -7,7 +7,7 @@ variables:
 resources:
   pipelines:
     pipeline_megha_u_demo_salesforce_ingestion_pipeline:
-      name: megha-u-demo-salesforce-ingestion-pipeline
+      name: (${bundle.target}) megha-u-demo-salesforce-ingestion-pipeline
       catalog: ${var.dest_catalog}
       target: ${var.dest_schema}
       ingestion_definition:

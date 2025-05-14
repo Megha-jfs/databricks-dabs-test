@@ -1,5 +1,5 @@
 {
-  "name": "salesforce_pipeline",
+  "name": "salesforce_pipeline_demo",
   "catalog": "meghaupadhyay_uc",
   "target": "salesforce_ingestion",
   "ingestion_definition": {

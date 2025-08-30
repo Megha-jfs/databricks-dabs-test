@@ -1,0 +1,26 @@
+variables:
+  dest_catalog:
+    default: meghaupadhyay_uc
+  dest_schema:
+    default: dev
+
+resources:
+  pipelines:
+    pipeline_megha_u_demo_salesforce_ingestion_pipeline:
+      name: (${bundle.target}) megha-u-demo-salesforce-ingestion-pipeline
+      catalog: ${var.dest_catalog}
+      target: ${var.dest_schema}
+      ingestion_definition:
+        connection_name: megha-u-demo-salesforce-connection
+        objects:
+          - table:
+              source_schema: objects
+              source_table: Account
+              destination_catalog: ${var.dest_catalog}
+              destination_schema: ${var.dest_schema}
+          - table:
+              source_schema: objects
+              source_table: MOCK_DATA__c
+              destination_catalog: ${var.dest_catalog}
+              destination_schema: ${var.dest_schema}
+      channel: PREVIEW

@@ -1,0 +1,13 @@
+resources:
+  jobs:
+    megha_u_demo_salesforce_ingestion_pipeline_job:
+      name: (${bundle.target}) megha-u-demo-salesforce-ingestion-pipeline job
+      trigger:
+        pause_status: UNPAUSED
+        periodic:
+          interval: 1
+          unit: DAYS
+      tasks:
+        - task_key: pipeline-task
+          pipeline_task:
+            pipeline_id: ${resources.pipelines.pipeline_megha_u_demo_salesforce_ingestion_pipeline.id}

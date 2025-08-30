@@ -1,0 +1,29 @@
+{
+  "name": "salesforce_pipeline_demo",
+  "catalog": "meghaupadhyay_uc",
+  "target": "salesforce_ingestion",
+  "ingestion_definition": {
+    "connection_name": "megha-demo-0506",
+    "objects": [
+      {
+        "table": {
+          "source_schema": "objects",
+          "source_table": "Account",
+          "destination_catalog": "meghaupadhyay_uc",
+          "destination_schema": "salesforce_ingestion",
+          "table_configuration": {
+            "include_columns": ["Id", "Name", "CreatedDate"]
+          }
+        }
+      },
+      {
+        "table": {
+          "source_schema": "objects",
+          "source_table": "Opportunity",
+          "destination_catalog": "meghaupadhyay_uc",
+          "destination_schema": "salesforce_ingestion"
+        }
+      }
+    ]
+  }
+}
